@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .home_page {
+    grid-template-areas:
+      "logo logo enc_txt enc_txt"
+      "img ficheiro enc_txt enc_txt"
+      "img ficheiro enc_txt enc_txt";
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  .texto {
+    grid-area: enc_txt;
+  }
+
+  .img {
+    grid-area: img;
+  }
+
+  /*
+.image_card button{
+  margin-top: 40px;
+  width: 60%;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 5px 5px 5px 5px;
+} */
+
+  .ficheiro {
+    grid-area: ficheiro;
+    background-color: #1f2937;
+    border-radius: 15px 15px 15px 15px;
+  }
+}
