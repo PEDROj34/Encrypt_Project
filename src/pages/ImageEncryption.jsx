@@ -75,63 +75,71 @@ export const ImageEncryption = () => {
           setDecryptedImage(decryptedAsFile)
         })
     }
-
-    // converter decrypted de base64 para File
-    /* setDecryptedImage(decrypted.toString(CryptoJS.enc.Utf8))
-    console.log(decryptedImage) */
   }
 
   return (
     <Layout>
       <div className="grid grid-cols-2 gap-4 px-4 pb-4 pt-32 max-h-screen">
-        <div className="flex flex-col h-80 rounded-md p-5 bg-gray-700 items-center justify-center">
+        <div className="flex flex-col h-[500px] rounded-md p-5 bg-gray-700 items-center justify-center">
           <label
             htmlFor="image"
             className="flex w-full h-full items-center justify-center font-light">
-            {!selectedImage
-              ? "Escolha a Imagem para Encriptar"
-              : selectedImage.name}
+            {!selectedImage ? (
+              <span className="hover:underline hover:ease-linear hover:underline-offset-4">
+                Escolha a <span className="font-bold">Imagem</span> para{" "}
+                <span className="underline underline-offset-4">Encriptar</span>
+              </span>
+            ) : (
+              selectedImage.name
+            )}
           </label>
 
           {selectedImage && (
             <img
               src={URL.createObjectURL(selectedImage)}
-              alt="Preview"
-              className="max-h-[16rem] h-full object-contain w-full"
+              alt={selectedImage.name}
+              className="max-h-[20rem] h-full object-contain w-full"
             />
           )}
 
-          <input hidden id="image" type="file" onChange={handleImageChange} />
+          <input hidden accept="image/*" id="image" type="file" onChange={handleImageChange} />
         </div>
-        <div className="flex flex-col h-80 items-center justify-center rounded-md overflow-hidden bg-gray-700">
-          <div className="w-full h-full">
-            <label
-              htmlFor="file"
-              className="flex w-full h-full items-center justify-center font-light">
-              {!file ? "Escolha a Imagem para Desencriptar" : file.name}
-            </label>
-            {decryptedImage && (
-              <img
-                src={URL.createObjectURL(decryptedImage)}
-                alt="Preview"
-                className="max-h-[16rem] h-full object-contain w-full"
-              />
+        <div className="flex flex-col p-5 h-[500px] items-center justify-center rounded-md overflow-hidden bg-gray-700">
+          <label
+            htmlFor="file"
+            className="flex w-full h-full items-center justify-center font-light">
+            {!file ? (
+              <span className="hover:underline hover:ease-linear hover:underline-offset-4">
+                Escolha a <span className="font-bold">Imagem</span> para{" "}
+                <span className="underline underline-offset-4">
+                  Desencriptar
+                </span>
+              </span>
+            ) : (
+              file.name
             )}
-            <input hidden id="file" type="file" onChange={handleFileChange} />
-          </div>
+          </label>
+          {decryptedImage && (
+            <img
+              src={URL.createObjectURL(decryptedImage)}
+              alt={decryptImage.name}
+              className="max-h-[20rem] h-full object-contain w-full"
+            />
+          )}
+          <input hidden id="file" type="file" onChange={handleFileChange} />
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4 px-4">
         <div className="flex flex-col items-center justify-center gap-4">
           <button
-            className="w-56 h-10 rounded-md italic bg-gray-700"
+            className="w-56 h-10 rounded-md shadow-lg hover:bg-gray-800 italic bg-gray-700 disabled:cursor-not-allowed"
             onClick={encryptImage}
             disabled={!selectedImage}>
             Encrypt
           </button>
           {encryptedImage && (
             <a
-              className="w-56 h-10 rounded-md bg-gray-700 inline-flex items-center justify-center"
+              className="w-56 h-10 rounded-md bg-gray-700 shadow-lg inline-flex items-center justify-center"
               download="encrypted"
               href={URL.createObjectURL(
                 new File([encryptedImage], "encrypted")
@@ -143,12 +151,13 @@ export const ImageEncryption = () => {
         <div className="flex flex-col items-center justify-center gap-4">
           <button
             onClick={decryptImage}
-            className="w-56 h-10 rounded-md italic bg-gray-700">
+            disabled={!file}
+            className="w-56 h-10 rounded-md italic shadow-lg hover:bg-gray-800 bg-gray-700 disabled:cursor-not-allowed">
             Decrypt
           </button>
           {decryptedImage && (
             <a
-              className="w-56 h-10 rounded-md bg-gray-700 inline-flex items-center justify-center"
+              className="w-56 h-10 rounded-md bg-gray-700 shadow-lg inline-flex items-center justify-center"
               download="decrypted"
               href={URL.createObjectURL(decryptedImage)}>
               Download

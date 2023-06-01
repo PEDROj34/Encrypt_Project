@@ -45,29 +45,29 @@ export const TextEncryption = () => {
   return (
     <Layout>
       <div className="grid grid-cols-2 gap-4 px-4 pb-4 pt-32 max-h-screen">
-        <div className="flex flex-col gap-2 items-center">
+        <div className="flex flex-col gap-4 items-center justify-center">
           <textarea
-            className="bg-gray-700 w-full h-80 resize-none p-4 rounded-md outline-none"
+            className="bg-gray-700 w-full h-[500px] resize-none p-4 rounded-md outline-none"
             value={texto}
             onChange={handleChange}
             placeholder="Write text here to encrypt..."></textarea>
           <button
             disabled={!texto}
             onClick={encriptarTexto}
-            className="w-[150px] shadow-lg hover:bg-gray-800 bg-gray-700 rounded-md p-3 disabled:cursor-not-allowed">
+            className="w-56 h-10 italic shadow-lg inline-flex items-center justify-center hover:bg-gray-800 bg-gray-700 rounded-md p-3 disabled:cursor-not-allowed">
             Encrypt
           </button>
         </div>
-        <div className="flex flex-col gap-2 items-center">
+        <div className="flex flex-col gap-4 items-center justify-center">
           <textarea
-            className="bg-gray-700 w-full h-80 resize-none p-4 rounded-md outline-none"
+            className="bg-gray-700 w-full h-[500px] resize-none p-4 rounded-md outline-none"
             value={textoEncrypted}
             onChange={handleChangeDecrypt}
             placeholder="Write text here to encrypt..."></textarea>
           <button
             disabled={!textoEncrypted}
             onClick={desencriptarTexto}
-            className="w-[150px] shadow-lg hover:bg-gray-800 bg-gray-700 rounded-md p-3 disabled:cursor-not-allowed">
+            className="w-56 h-10 italic shadow-lg inline-flex items-center justify-center hover:bg-gray-800 bg-gray-700 rounded-md p-3 disabled:cursor-not-allowed">
             Decrypt
           </button>
         </div>
