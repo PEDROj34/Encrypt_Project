@@ -50,4 +50,7 @@ Rodar o comando `yarn dev` no terminal e abrir o browser em http://localhost:517
 
 #### Tecnologias usadas
 
-- [x] [Vite.js](https://vitejs.dev)
+- [x] [Vite](https://vitejs.dev)
+- [x] [CryptoJS](https://cryptojs.gitbook.io/docs/)
+- [x] [React.js](https://react.dev/)
+- [x] [Tailwind CSS](https://tailwindcss.com/)
