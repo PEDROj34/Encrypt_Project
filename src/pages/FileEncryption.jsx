@@ -1,6 +1,7 @@
 import { Layout } from "../components/Layout"
 import React, { useState } from "react"
 import CryptoJS from "crypto-js"
+import { string } from "prop-types"
 
 export const FileEncryption = () => {
   const [selectedFile, setSelectedFile] = useState(null)
@@ -12,6 +13,10 @@ export const FileEncryption = () => {
   const iv = CryptoJS.enc.Hex.parse("zyxwvutsrqponmlkjihgfedcba")
 
   const handleFirstFileChange = e => {
+    if(e.target.files[0].type.startsWith("image")){
+      alert("Não é possível carregar imagens!")
+      return
+    }
     setSelectedFile(e.target.files[0])
     setEncryptedFile(null)
     setDecryptedFile(null)
@@ -43,6 +48,10 @@ export const FileEncryption = () => {
   }
 
   const handleSecondFileChange = e => {
+    if(e.target.files[0].type.startsWith("image")){
+      alert("Não é possível carregar imagens!")
+      return
+    }
     setFile(e.target.files[0])
     setEncryptedFile(null)
     setDecryptedFile(null)

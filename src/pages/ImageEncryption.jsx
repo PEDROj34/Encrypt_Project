@@ -12,6 +12,10 @@ export const ImageEncryption = () => {
   const iv = CryptoJS.enc.Hex.parse("zyxwvutsrqponmlkjihgfedcba")
 
   const handleImageChange = e => {
+    if(!e.target.files[0].type.startsWith("image")){
+      alert("Não é possível carregar este tipo de ficheiro!")
+      return
+    }
     setSelectedImage(e.target.files[0])
     setEncryptedImage(null)
     setDecryptedImage(null)
@@ -43,6 +47,10 @@ export const ImageEncryption = () => {
   }
 
   const handleFileChange = e => {
+    if(!e.target.files[0].type.startsWith("image")){
+      alert("Não é possível carregar este tipo de ficheiro!")
+      return
+    }
     setFile(e.target.files[0])
     setEncryptedImage(null)
     setDecryptedImage(null)
