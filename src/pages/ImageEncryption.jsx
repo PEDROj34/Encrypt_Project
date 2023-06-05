@@ -47,7 +47,7 @@ export const ImageEncryption = () => {
   }
 
   const handleFileChange = e => {
-    if(!e.target.files[0].type.startsWith("image")){
+    if(e.target.files[0].type.startsWith("image")){
       alert("Não é possível carregar este tipo de ficheiro!")
       return
     }
