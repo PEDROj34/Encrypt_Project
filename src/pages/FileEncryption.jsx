@@ -1,7 +1,6 @@
 import { Layout } from "../components/Layout"
 import React, { useState } from "react"
 import CryptoJS from "crypto-js"
-import { string } from "prop-types"
 
 export const FileEncryption = () => {
   const [selectedFile, setSelectedFile] = useState(null)
