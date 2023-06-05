@@ -9,11 +9,11 @@ export const TextEncryption = () => {
   const key = CryptoJS.enc.Hex.parse("0918273645suco0918273645")
   const iv = CryptoJS.enc.Hex.parse("zyxwvutsrqponmlkjihgfedcba")
 
-  const handleChange = (evento) => {
+  const handleChange = evento => {
     setTexto(evento.target.value)
   }
 
-  const handleChangeDecrypt = (evento) => {
+  const handleChangeDecrypt = evento => {
     setTextoEncrypted(evento.target.value)
   }
 
@@ -47,7 +47,7 @@ export const TextEncryption = () => {
       <div className="grid grid-cols-2 gap-4 px-4 pb-4 pt-32 max-h-screen">
         <div className="flex flex-col gap-4 items-center justify-center">
           <textarea
-            className="bg-gray-700 w-full h-[500px] resize-none p-4 rounded-md outline-none"
+            className="bg-gray-700 w-full md:h-[400px] h-[500px] resize-none p-4 rounded-md outline-none"
             value={texto}
             onChange={handleChange}
             placeholder="Write text here to encrypt..."></textarea>
@@ -60,7 +60,7 @@ export const TextEncryption = () => {
         </div>
         <div className="flex flex-col gap-4 items-center justify-center">
           <textarea
-            className="bg-gray-700 w-full h-[500px] resize-none p-4 rounded-md outline-none"
+            className="bg-gray-700 w-full md:h-[400px] h-[500px] resize-none p-4 rounded-md outline-none"
             value={textoEncrypted}
             onChange={handleChangeDecrypt}
             placeholder="Write text here to encrypt..."></textarea>

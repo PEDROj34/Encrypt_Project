@@ -88,7 +88,7 @@ export const ImageEncryption = () => {
   return (
     <Layout>
       <div className="grid grid-cols-2 gap-4 px-4 pb-4 pt-32 max-h-screen">
-        <div className="flex flex-col h-[500px] rounded-md p-5 bg-gray-700 items-center justify-center">
+        <div className="flex flex-col md:h-[400px] h-[500px] rounded-md p-5 bg-gray-700 items-center justify-center">
           <label
             htmlFor="image"
             className="flex w-full h-full items-center justify-center font-light">
@@ -112,7 +112,7 @@ export const ImageEncryption = () => {
 
           <input hidden accept="image/*" id="image" type="file" onChange={handleImageChange} />
         </div>
-        <div className="flex flex-col p-5 h-[500px] items-center justify-center rounded-md overflow-hidden bg-gray-700">
+        <div className="flex flex-col p-5 md:h-[400px] h-[500px] items-center justify-center rounded-md overflow-hidden bg-gray-700">
           <label
             htmlFor="file"
             className="flex w-full h-full items-center justify-center font-light">
